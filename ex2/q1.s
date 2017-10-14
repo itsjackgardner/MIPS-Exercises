@@ -29,6 +29,7 @@ loop:
    sb   $t1, ($a1)
    addi $a0, $a0, 1
    addi $a1, $a1, 1
+   j    loop
 
 end:
    sb   $zero, ($a1)
