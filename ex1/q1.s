@@ -33,6 +33,7 @@ loop:
    j    loop
 
 end:
+   move $v0, $t0
 # epilogue
    # if you saved more than two $s? registers
    # add the code to restore them here
