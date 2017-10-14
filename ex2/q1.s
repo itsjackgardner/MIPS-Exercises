@@ -31,7 +31,7 @@ loop:
    addi $a1, $a1, 1
 
 end:
-   sb   0, ($a1)
+   sb   $zero, ($a1)
    move $v0, $t0
 # epilogue
    # if you saved more than two $s? registers
