@@ -23,16 +23,15 @@ lowerfy:
 # locals: ...
 
    li   $t0, 0          # n
-   lw   $s0, '\0'
 loop:
-   lw   $t1, ($a0)
-   beq  $t1, $s0, end
-   sw   $t1, ($a1)
-   addi $a0, $a0, 4
-   addi $a1, $a1, 4
+   lb   $t1, ($a0)
+   beqz $t1, end
+   sb   $t1, ($a1)
+   addi $a0, $a0, 1
+   addi $a1, $a1, 1
 
 end:
-   sb   $s0, ($a1)
+   sb   0, ($a1)
    move $v0, $t0
 # epilogue
    # if you saved more than two $s? registers
