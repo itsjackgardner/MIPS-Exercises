@@ -23,17 +23,23 @@ rmOdd:
 # locals: ...
 
    li   $t0, 0
+   li   $t1, 0
+   li   $s0, 2
 loop:
    beq  $t0, $a1, end
    lw   $t2, ($a0)
-   lw   $t2, ($a2)
+   rem  $t3, $t2, $s0
+   bnez $t3, continue
+   sw   $t2, ($a2)
+   addi $t1, $t1, 1
+   addi $a2, $a2, 4
+continue:
    addi $t0, $t0, 1
    addi $a0, $a0, 4
-   addi $a2, $a2, 4
    j    loop
 
 end:
-   move $v0, $t0
+   move $v0, $t1
 # epilogue
    # if you saved more than two $s? registers
    # add the code to restore them here
