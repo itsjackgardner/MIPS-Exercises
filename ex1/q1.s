@@ -22,8 +22,17 @@ rmOdd:
 # function body
 # locals: ...
 
-   # add code for your rmOdd function here
+   li   $t0, 0
+loop:
+   beq  $t0, $a1, end
+   lw   $t2, ($a0)
+   lw   $t2, ($a2)
+   addi $t0, $t0, 1
+   addi $a0, $a0, 4
+   addi $a2, $a2, 4
+   j    loop
 
+end:
 # epilogue
    # if you saved more than two $s? registers
    # add the code to restore them here
@@ -36,4 +45,3 @@ rmOdd:
    lw   $fp, ($sp)
    addi $sp, $sp, 4
    j    $ra
-
