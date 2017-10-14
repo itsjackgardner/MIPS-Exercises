@@ -22,8 +22,18 @@ lowerfy:
 # function body
 # locals: ...
 
-   # add code for your lowerfy function here
+   li   $t0, 0          # n
+   lb   $s0, '\0'
+loop:
+   lb   $t1, ($a0)
+   beq  $t1, $s0, end
+   sb   $t1, ($a1)
+   addi $a0, $a0, 1
+   addi $a1, $a1, 1
 
+end:
+   sb   $s0, ($a1)
+   move $v0, $t0
 # epilogue
    # if you saved more than two $s? registers
    # add the code to restore them here
@@ -36,4 +46,3 @@ lowerfy:
    lw   $fp, ($sp)
    addi $sp, $sp, 4
    j    $ra
-
