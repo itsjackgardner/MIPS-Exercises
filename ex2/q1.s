@@ -23,13 +23,13 @@ lowerfy:
 # locals: ...
 
    li   $t0, 0          # n
-   lb   $s0, '\0'
+   lw   $s0, '\0'
 loop:
-   lb   $t1, ($a0)
+   lw   $t1, ($a0)
    beq  $t1, $s0, end
-   sb   $t1, ($a1)
-   addi $a0, $a0, 1
-   addi $a1, $a1, 1
+   sw   $t1, ($a1)
+   addi $a0, $a0, 4
+   addi $a1, $a1, 4
 
 end:
    sb   $s0, ($a1)
