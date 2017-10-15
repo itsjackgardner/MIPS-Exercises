@@ -37,6 +37,8 @@ loop:
    lw   $t3, ($a2)
    mul  $t2, $t2, $t3
    add  $t1, $t1, $t2
+   addi $a0, $a0, 4
+   addi $a2, $a2, 4
    j    loop
    nop
 
