@@ -22,7 +22,7 @@ novowels:
 # function body
 # locals: ...
 
-   li   $t0, 0          # n
+   li   $s1, 0          # n
    move $s0, $a0
 loop:
    lb   $t1, ($s0)
@@ -35,7 +35,7 @@ loop:
    j    continue
    nop
 vowel:
-   addi $t0, $t0, 1
+   addi $s1, $s1, 1
 continue:
    addi $s0, $s0, 1
    j    loop
@@ -43,7 +43,7 @@ continue:
 
 end:
    sb   $zero, ($a1)
-   move $v0, $t0
+   move $v0, $s1
 
 # epilogue
    # if you saved more than two $s? registers
