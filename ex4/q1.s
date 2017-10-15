@@ -39,6 +39,7 @@ loop:
    add  $t1, $t1, $t2
    addi $a0, $a0, 4
    addi $a2, $a2, 4
+   addi $t0, $t0, 1
    j    loop
    nop
 
