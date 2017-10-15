@@ -31,10 +31,7 @@ loop:
    blt  $t1, $s0, continue
    bgt  $t1, $s1, continue
    addi $t1, $t1, -32
-<<<<<<< HEAD
    addi $t0, $t0, 1
-=======
->>>>>>> ed2c96173fb2c15196f48d4282ebe13b2ffc5782
 continue:
    sb   $t1, ($a1)
    addi $a0, $a0, 1
