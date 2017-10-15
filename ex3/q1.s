@@ -22,7 +22,39 @@ novowels:
 # function body
 # locals: ...
 
-   # add code for your novwels function here
+   li   $t0, 0          # n
+loop:
+   lb   $t1, ($a0)
+   # check vowels
+   li   $t2, 'a'       # a
+   beq  $t1, $t2, vowel
+   nop
+   li   $t2, 'e'       # e
+   beq  $t1, $t2, vowel
+   nop
+   li   $t2, 'i'       # i
+   beq  $t1, $t2, vowel
+   nop
+   li   $t2, 'o'       # o
+   beq  $t1, $t2, vowel
+   nop
+   li   $t2, 'u'       # u
+   beq  $t1, $t2, vowel
+   nop
+   sb   $t1, ($a1)
+   addi $a1, $a1, 1
+   j    continue
+   nop
+vowel:
+   addi $t0, $t0, 1
+continue:
+   addi $a0, $a0, 1
+   j    loop
+   nop
+
+end:
+   sb   $zero, ($a1)
+   move $v0, $t0
 
 # epilogue
    # if you saved more than two $s? registers
