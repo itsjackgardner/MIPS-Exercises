@@ -23,15 +23,15 @@ lowerfy:
 # locals: ...
 
    li   $t0, 0          # n
-   lb   $s0, 'A'
-   lb   $s1, 'Z'
+   #lb   $s0, 'A'
+   #lb   $s1, 'Z'
 loop:
    lb   $t1, ($a0)
    beqz $t1, end
-   blt  $t1, $s0, continue
-   bgt  $t1, $s1, continue
-   addi $t1, $t1, 32
-   addi $t0, $t0, 1
+   #blt  $t1, $s0, continue
+   #bgt  $t1, $s1, continue
+   #addi $t1, $t1, 32
+   #addi $t0, $t0, 1
 continue:
    sb   $t1, ($a1)
    addi $a0, $a0, 1
