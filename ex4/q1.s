@@ -20,10 +20,29 @@ dotProd:
    # add the code to save them here
 
 # function body
-# locals: ...
+# locals:
 
-   # add code for your dotProd function here
+   li   $t0, 0  # i
+   li   $t1, 0  # sum
+   blt  $a1, $a3, else
+   move $s1, $a1
+   j    loop
+   nop
+else:
+   move $s1, $a2
 
+loop:
+   beq  $t0, $s1, end
+   lw   $t2, ($a0)
+   lw   $t3, ($a2)
+   mul  $t2, $t2, $t3
+   add  $t1, $t1, $t2
+   j    loop
+   nop
+
+end:
+   move $v0, $t1
+   move $v1, $s1
 # epilogue
    # if you saved more than two $s? registers
    # add the code to restore them here
@@ -36,4 +55,3 @@ dotProd:
    lw   $fp, ($sp)
    addi $sp, $sp, 4
    j    $ra
-
