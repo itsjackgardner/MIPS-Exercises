@@ -30,7 +30,7 @@ loop:
    beqz $t1, end
    blt  $t1, $s0, continue
    bgt  $t1, $s1, continue
-   addi $t1, $t1, -32
+   addi $t1, $t1, 32
    addi $t0, $t0, 1
 continue:
    sb   $t1, ($a1)
