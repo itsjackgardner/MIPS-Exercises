@@ -23,25 +23,13 @@ novowels:
 # locals: ...
 
    li   $t0, 0          # n
+   move $s0, $a0
 loop:
-   lb   $t1, ($a0)
+   lb   $t1, ($s0)
    beqz $t1, end
-   # check vowels
-   li   $t2, 'a'       # a
-   beq  $t1, $t2, vowel
-   nop
-   li   $t2, 'e'       # e
-   beq  $t1, $t2, vowel
-   nop
-   li   $t2, 'i'       # i
-   beq  $t1, $t2, vowel
-   nop
-   li   $t2, 'o'       # o
-   beq  $t1, $t2, vowel
-   nop
-   li   $t2, 'u'       # u
-   beq  $t1, $t2, vowel
-   nop
+   move $a0, $t1
+   jal  isvowel
+   bnez $v0, vowel
    sb   $t1, ($a1)
    addi $a1, $a1, 1
    j    continue
@@ -49,7 +37,7 @@ loop:
 vowel:
    addi $t0, $t0, 1
 continue:
-   addi $a0, $a0, 1
+   addi $s0, $s0, 1
    j    loop
    nop
 
