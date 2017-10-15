@@ -29,7 +29,7 @@ dotProd:
    j    loop
    nop
 else:
-   move $s1, $a2
+   move $s1, $a3
 
 loop:
    beq  $t0, $s1, end
