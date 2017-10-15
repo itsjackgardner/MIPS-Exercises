@@ -25,6 +25,7 @@ novowels:
    li   $t0, 0          # n
 loop:
    lb   $t1, ($a0)
+   beqz $t1, end
    # check vowels
    li   $t2, 'a'       # a
    beq  $t1, $t2, vowel
