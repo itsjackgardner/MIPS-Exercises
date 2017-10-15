@@ -24,7 +24,7 @@ dotProd:
 
    li   $t0, 0  # i
    li   $t1, 0  # sum
-   blt  $a1, $a3, else
+   bge  $a1, $a3, else
    move $s1, $a1
    j    loop
    nop
